@@ -4,7 +4,7 @@
 [![License](https://img.shields.io/badge/license-MIT-green)](#-license)
 [![Python](https://img.shields.io/badge/python-3.10%2B-blue)](https://www.python.org/)
 
-👉 **Русская версия README:**\
+👉 **Русская версия README:**
 https://github.com/OMchik33/Connectivity_Tester/blob/main/README-RU.md
 
 ------------------------------------------------------------------------
@@ -15,7 +15,7 @@ This utility is intended **only for diagnosing network connectivity,
 traffic analysis, and infrastructure availability testing**.
 
 The author is not responsible for misuse of this software in violation
-of laws.\
+of laws.
 Use it **only for legal purposes**.
 
 ------------------------------------------------------------------------
@@ -24,8 +24,8 @@ Use it **only for legal purposes**.
 
 A powerful tool for diagnosing:
 
--   Network restrictions\
--   Traffic filtering (DPI)\
+-   Network restrictions
+-   Traffic filtering (DPI)
 -   Website accessibility issues
 
 Now with a full **GUI**, parallel testing, and clear result
@@ -41,15 +41,15 @@ visualization.
 
 ## 🚀 Features
 
--   🌐 Website & infrastructure availability checks\
--   🔎 DNS restriction detection\
--   🔐 TLS (1.2 / 1.3) testing\
--   🛡️ SSL validation\
--   📡 HTTP availability check\
--   🧠 DPI filtering analysis\
--   ⚡ Parallel execution\
--   🎨 Color-coded results\
--   💬 Tooltips with explanations\
+-   🌐 Website & infrastructure availability checks
+-   🔎 DNS restriction detection
+-   🔐 TLS (1.2 / 1.3) testing
+-   🛡️ SSL validation
+-   📡 HTTP availability check
+-   🧠 DPI filtering analysis
+-   ⚡ Parallel execution
+-   🎨 Color-coded results
+-   💬 Tooltips with explanations
 -   🔍 "Show only issues" filter
 
 ------------------------------------------------------------------------
@@ -58,8 +58,8 @@ visualization.
 
 ### Controls
 
--   **Standard Check** --- run built-in list\
--   **My List** --- run custom list\
+-   **Standard Check** --- run built-in list
+-   **My List** --- run custom list
 -   **Stop Test** --- stop execution
 
 ### Results Table
@@ -76,7 +76,7 @@ Hover over cells to see detailed explanations.
 
 ## 📄 Custom Site List
 
-File: `user_sites.txt`\
+File: `user_sites.txt`
 Created automatically next to the EXE.
 
 ### Supported formats
@@ -89,7 +89,7 @@ Created automatically next to the EXE.
 
 ### Tips
 
--   Use **domain** → general testing\
+-   Use **domain** → general testing
 -   Use **full URL** → precise diagnostics
 
 ------------------------------------------------------------------------
@@ -98,16 +98,16 @@ Created automatically next to the EXE.
 
 Includes stable global services:
 
--   YouTube\
--   GitHub\
--   Microsoft\
--   Cloudflare\
--   AWS\
--   Hetzner\
--   OVH\
--   DigitalOcean\
--   Vultr\
--   Fastly\
+-   YouTube
+-   GitHub
+-   Microsoft
+-   Cloudflare
+-   AWS
+-   Hetzner
+-   OVH
+-   DigitalOcean
+-   Vultr
+-   Fastly
 -   Google Cloud
 
 ------------------------------------------------------------------------
@@ -146,7 +146,7 @@ Analyzes first \~16KB of response.
 
 Additional:
 
--   `Not checked (HTTP XXX)`\
+-   `Not checked (HTTP XXX)`
 -   `Not checked (<16 KB ...)`
 
 ------------------------------------------------------------------------
@@ -157,7 +157,7 @@ Uses external services.
 
 Limitations:
 
--   Some IPs cannot be detected\
+-   Some IPs cannot be detected
 -   CDN may return inaccurate location
 
 ------------------------------------------------------------------------
@@ -166,8 +166,8 @@ Limitations:
 
 Shows:
 
--   Error causes\
--   Status explanation\
+-   Error causes
+-   Status explanation
 -   Final verdict
 
 ------------------------------------------------------------------------
@@ -187,8 +187,8 @@ Shows:
 
 ## 💡 Notes
 
--   Parallel tests with thread limits\
--   DPI analysis may fail on small pages\
+-   Parallel tests with thread limits
+-   DPI analysis may fail on small pages
 -   Results depend on ISP / region
 
 ------------------------------------------------------------------------
