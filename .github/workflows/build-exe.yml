@@ -42,9 +42,8 @@ jobs:
           path: dist/DPIConnectivityTester.exe
           if-no-files-found: error
 
-      - name: Create Release and upload EXE
-        if: ${{ github.event.inputs.release_tag != '' }}
+      - name: Create GitHub Release and upload EXE
         run: |
-          gh release create "${{ github.event.inputs.release_tag }}" "dist/DPIConnectivityTester.exe" --title "${{ github.event.inputs.release_tag }}" --generate-notes
+          gh release create "auto-${{ github.run_number }}" "dist/DPIConnectivityTester.exe" --title "Build ${{ github.run_number }}" --generate-notes
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
