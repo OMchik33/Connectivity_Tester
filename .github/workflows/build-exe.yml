@@ -4,12 +4,17 @@ on:
   workflow_dispatch:
     inputs:
       release_tag:
-        description: 'Tag for release, for example v1.0.0'
+        description: 'Tag for release, for example v5.4'
         required: false
         type: string
 
 permissions:
   contents: write
+
+env:
+  APP_NAME: DPIConnectivityTester
+  APP_VERSION: 5.4
+  MAIN_FILE: main.py
 
 jobs:
   build-windows-exe:
@@ -31,19 +36,31 @@ jobs:
           python -m pip install -r requirements.txt
           python -m pip install pyinstaller
 
+      - name: Prepare names
+        shell: pwsh
+        run: |
+          $exeName = "${env:APP_NAME}_v${env:APP_VERSION}"
+          $releaseTag = "${{ github.event.inputs.release_tag }}"
+          if ([string]::IsNullOrWhiteSpace($releaseTag)) {
+            $releaseTag = "v$($env:APP_VERSION)-${{ github.run_number }}"
+          }
+
+          "EXE_NAME=$exeName" >> $env:GITHUB_ENV
+          "RELEASE_TAG=$releaseTag" >> $env:GITHUB_ENV
+
       - name: Build EXE
         run: |
-          python -m PyInstaller --noconfirm --clean --onefile --windowed --name DPIConnectivityTester tester_gui_5.3.py
+          python -m PyInstaller --noconfirm --clean --onefile --windowed --name "${{ env.EXE_NAME }}" "${{ env.MAIN_FILE }}"
 
       - name: Upload EXE artifact
         uses: actions/upload-artifact@v4
         with:
-          name: DPIConnectivityTester-windows
-          path: dist/DPIConnectivityTester.exe
+          name: ${{ env.EXE_NAME }}-windows
+          path: dist/${{ env.EXE_NAME }}.exe
           if-no-files-found: error
 
       - name: Create GitHub Release and upload EXE
         run: |
-          gh release create "auto-${{ github.run_number }}" "dist/DPIConnectivityTester.exe" --title "Build ${{ github.run_number }}" --generate-notes
+          gh release create "${{ env.RELEASE_TAG }}" "dist/${{ env.EXE_NAME }}.exe" --title "${{ env.EXE_NAME }} (build ${{ github.run_number }})" --generate-notes
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
